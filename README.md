@@ -1,3 +1,10 @@
+# Changes From the proposal
+We switched the evaluation metric to BERTScore because it is easier to obtain and computes similarity scores between predicted and reference texts based on their contextual embeddings from a pre-trained BERT model. After reviewing the generated results, we determined that BERTScore is the most suitable metric for our project.
+
+Human evaluation was conducted using two metrics instead of one: "gesture_score" and "meaning_score ." This approach helps assess whether the model fails to capture the gesture shape entirely or simply misses the meaning in a specific culture, despite recognizing the gesture.
+
+Additionally, we computed the most common words in the output of each model, segmented by culture, to investigate potential biases towards specific gestures within a given culture.
+
 # Structure
 
 ### Dataset Folder
