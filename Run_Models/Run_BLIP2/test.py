@@ -6,13 +6,13 @@ from tqdm import tqdm
 import os
 
 # Setup
-csv_file = "Cullen/labels.txt"  # path to your labels file
-image_dir = "Cullen"  # path to image folder
+csv_file = "Cullen/labels.txt"  # The path must be manually set 
+image_dir = "Cullen"  # The path must be manually set to appropriate folder
 
 # Load data
 df = pd.read_csv(csv_file)
 df.columns = df.columns.str.strip()
-df = df.tail(4)
+
 # Load BLIP-2
 device = "cuda" if torch.cuda.is_available() else "cpu"
 processor = Blip2Processor.from_pretrained("Salesforce/blip2-flan-t5-xl")
