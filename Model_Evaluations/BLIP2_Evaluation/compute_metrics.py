@@ -41,7 +41,7 @@ for file_path in file_paths:
         invalid_rows = df[invalid_mask]
 
         if not invalid_rows.empty:
-            print(f"  ⚠️ Found {len(invalid_rows)} row(s) with invalid 'culture' in {file_path}:")
+            print(f"   Found {len(invalid_rows)} row(s) with invalid 'culture' in {file_path}:")
             print("  → Affected image filenames:")
             for fn in invalid_rows['filename']:
                 print(f"    - {fn}")
@@ -60,7 +60,7 @@ for file_path in file_paths:
         for culture, row in grouped.iterrows():
             score_counts[culture]['meaning_score'] += row['meaning_score']
             score_counts[culture]['gesture_score'] += row['gesture_score']
-        print(f"  ✅ Added scores for cultures: {', '.join(grouped.index)}")
+        print(f"   Added scores for cultures: {', '.join(grouped.index)}")
 
         # BERTScore per culture
         for culture in df['culture'].unique():
@@ -99,7 +99,7 @@ for culture in sorted(score_counts):
         'gesture_score': scores['gesture_score']
     })
 pd.DataFrame(culture_rows).to_csv("culture_score_summary.csv", index=False)
-print("✅ Saved culture scores to 'culture_score_summary.csv'.")
+print(" Saved culture scores to 'culture_score_summary.csv'.")
 
 # Print and save BERTScores
 print("\n=== BERTScores by Culture ===")
@@ -114,9 +114,9 @@ for culture in sorted(bert_scores_by_culture):
     avg_mg = sum(mg)/len(mg) if mg else 0.0
 
     print(f"{culture}:")
-    print(f"  🧠 Label vs Meaning:  F1 = {avg_lm:.4f}")
-    print(f"  🧠 Label vs Gesture:  F1 = {avg_lg:.4f}")
-    print(f"  🧠 Meaning vs Gesture: F1 = {avg_mg:.4f}")
+    print(f"   Label vs Meaning:  F1 = {avg_lm:.4f}")
+    print(f"   Label vs Gesture:  F1 = {avg_lg:.4f}")
+    print(f"   Meaning vs Gesture: F1 = {avg_mg:.4f}")
 
     bert_rows.append({
         'culture': culture,
@@ -125,5 +125,5 @@ for culture in sorted(bert_scores_by_culture):
         'bert_f1_meaning_vs_gesture': avg_mg
     })
 pd.DataFrame(bert_rows).to_csv("bert_score_summary.csv", index=False)
-print("✅ Saved BERTScores to 'bert_score_summary.csv'.")
+print(" Saved BERTScores to 'bert_score_summary.csv'.")
 
