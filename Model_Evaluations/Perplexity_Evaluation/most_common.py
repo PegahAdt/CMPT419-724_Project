@@ -4,7 +4,7 @@ import glob
 import re
 from itertools import islice
 
-# === Config ===
+#  Config
 SOURCE_COLUMNS = ["result"]
 NGRAM_RANGE = (5, 7)  #  5- to 7-word phrases
 TOP_K = 15
@@ -18,7 +18,7 @@ def clean_text(text):
 def generate_ngrams(tokens, n):
     return zip(*(islice(tokens, i, None) for i in range(n)))
 
-# === Locate .txt files
+#  Locate .txt files
 file_paths = glob.glob("*.txt")
 if not file_paths:
     print(" No TXT files found.")
@@ -26,10 +26,10 @@ if not file_paths:
 else:
     print(f" Found {len(file_paths)} .txt file(s).")
 
-# === Store phrases per (culture, source)
+#  Store phrases per (culture, source)
 phrases_by_culture_source = defaultdict(Counter)
 
-# === Process each file
+#  Process each file
 for file_path in file_paths:
     print(f"\n Processing {file_path}")
     try:
@@ -61,8 +61,8 @@ for file_path in file_paths:
     except Exception as e:
         print(f" Error reading {file_path}: {e}")
 
-# === Output results
-print("\n=== Most Common Filtered Phrases per Culture and Source ===")
+#  Output results
+print("\n Most Common Filtered Phrases per Culture and Source ")
 rows = []
 for (culture, source_col), counter in sorted(phrases_by_culture_source.items()):
     print(f"\n {culture} — {source_col}:")
