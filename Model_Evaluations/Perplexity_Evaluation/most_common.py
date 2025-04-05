@@ -36,7 +36,7 @@ for file_path in file_paths:
         df = pd.read_csv(file_path)
 
         if 'culture' not in df.columns or not all(col in df.columns for col in SOURCE_COLUMNS):
-            print(f"⚠ Skipping {file_path} (missing 'culture', 'result', or 'label')")
+            print(f"Skipping {file_path} (missing 'culture', 'result', or 'label')")
             continue
 
         for _, row in df.iterrows():
