@@ -85,10 +85,10 @@ for file_path in file_paths:
             bert_scores_by_culture[culture]['meaning_vs_gesture'].append(f1_mg)
 
     except Exception as e:
-        print(f"  ❌ Error reading {file_path}: {e}")
+        print(f"   Error reading {file_path}: {e}")
 
 # Print and save culture scores
-print("\n=== Total Scores by Culture ===")
+print("\n Total Scores by Culture ")
 culture_rows = []
 for culture in sorted(score_counts):
     scores = score_counts[culture]
@@ -102,7 +102,7 @@ pd.DataFrame(culture_rows).to_csv("culture_score_summary.csv", index=False)
 print(" Saved culture scores to 'culture_score_summary.csv'.")
 
 # Print and save BERTScores
-print("\n=== BERTScores by Culture ===")
+print("\nBERTScores by Culture ")
 bert_rows = []
 for culture in sorted(bert_scores_by_culture):
     lm = bert_scores_by_culture[culture]['label_vs_meaning']
