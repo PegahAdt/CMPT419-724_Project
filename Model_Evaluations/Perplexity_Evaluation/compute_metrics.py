@@ -80,8 +80,8 @@ for file_path in file_paths:
     except Exception as e:
         print(f"   Error reading {file_path}: {e}")
 
-# === Save culture scores ===
-print("\n=== Total Scores by Culture ===")
+#  Save culture scores 
+print("\n Total Scores by Culture ")
 culture_rows = []
 for culture in sorted(score_counts):
     scores = score_counts[culture]
@@ -94,8 +94,8 @@ for culture in sorted(score_counts):
 pd.DataFrame(culture_rows).to_csv("culture_score_summary.csv", index=False)
 print(" Saved culture scores to 'culture_score_summary.csv'.")
 
-# === Save BERTScores ===
-print("\n=== BERTScores by Culture (Result vs Label) ===")
+# Save BERTScores 
+print("\n BERTScores by Culture (Result vs Label) ")
 bert_rows = []
 for culture in sorted(bert_scores_by_culture):
     rl = bert_scores_by_culture[culture]['result_vs_label']
