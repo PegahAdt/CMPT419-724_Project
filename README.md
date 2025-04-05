@@ -34,6 +34,7 @@ Each subfolder includes:
 ### Run_Models Folder
 
 The Run_Models folder contains three subfolders, each with scripts used to run corresponding models. 
+The folders also contain the results obtained from running the models.
 
 
 **Note:**  
