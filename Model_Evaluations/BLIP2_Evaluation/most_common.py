@@ -9,7 +9,7 @@ SOURCE_COLUMNS = ["blip2_meaning", "blip2_gesture"]  # Columns to analyze
 NGRAM_RANGE = (3, 8)            
 TOP_K = 10                       # Top N phrases per culture per column
 
-# === Preprocessing ===
+# Preprocessing 
 def clean_text(text):
     text = text.lower()
     text = re.sub(r"[^\w\s]", "", text)  # remove punctuation
@@ -18,7 +18,7 @@ def clean_text(text):
 def generate_ngrams(tokens, n):
     return zip(*(islice(tokens, i, None) for i in range(n)))
 
-# === Collect files ===
+#  Collect files 
 file_paths = glob.glob("*.txt")
 if not file_paths:
     print(" No TXT files found.")
@@ -26,10 +26,10 @@ if not file_paths:
 else:
     print(f" Found {len(file_paths)} .txt file(s).")
 
-# === Phrase counter: {culture, source} → Counter
+#  Phrase counter: {culture, source} → Counter
 phrases_by_culture_source = defaultdict(Counter)
 
-# === Process each file
+#  Process each file
 for file_path in file_paths:
     print(f"\n Processing {file_path}")
     try:
@@ -62,8 +62,8 @@ for file_path in file_paths:
     except Exception as e:
         print(f" Error reading {file_path}: {e}")
 
-# === Save and display output
-print("\n=== Most Common Phrases per Culture and Source Column ===")
+#  Save and display output
+print("\n Most Common Phrases per Culture and Source Column ")
 rows = []
 for (culture, source_col), counter in sorted(phrases_by_culture_source.items()):
     print(f"\n {culture} — {source_col}:")
