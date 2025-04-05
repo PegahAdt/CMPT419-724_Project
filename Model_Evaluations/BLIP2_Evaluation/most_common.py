@@ -4,7 +4,7 @@ import glob
 import re
 from itertools import islice
 
-# === Config ===
+# Config 
 SOURCE_COLUMNS = ["blip2_meaning", "blip2_gesture"]  # Columns to analyze
 NGRAM_RANGE = (3, 8)            
 TOP_K = 10                       # Top N phrases per culture per column
