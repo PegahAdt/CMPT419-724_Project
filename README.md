@@ -5,6 +5,8 @@ Human evaluation was conducted using two metrics instead of one: "gesture_score"
 
 Additionally, we computed the most common words in the output of each model, segmented by culture, to investigate potential biases towards specific gestures within a given culture.
 
+As LLaVA was too large to run on our machines, results were generated using the website https://huggingface.co/spaces/badayvedat/LLaVA with the parameters: Temperature = 0.2, Top P = 0.7, and Max Tokens = 512.
+
 # Structure
 
 ### Dataset Folder
