@@ -7,6 +7,8 @@ Additionally, we computed the most common words in the output of each model, seg
 
 As LLaVA was too large to run on our machines, results were generated using the website https://huggingface.co/spaces/badayvedat/LLaVA with the parameters: Temperature = 0.2, Top P = 0.7, and Max Tokens = 512.
 
+cogVLM was changed to Perplexity-AI as cogVLM was too large for any of our machines to handle and we had access to Perplexity AI through tokens.
+
 # Structure
 
 ### Dataset Folder
